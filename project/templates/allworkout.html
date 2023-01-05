@@ -1,0 +1,28 @@
+{% extends 'base.html' %}  {{super()}}
+{% block content %}  
+
+<div class ="container">
+<h2> All workout are listed here! </h2>
+<h3> Welcome, {{user.username}} </h3>
+<table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col">Number of pushups</th>
+        <th scope="col">Perfomed at</th>
+        <th scope="col">Comments</th>
+      </tr>
+    </thead>
+    {% for workout in workouts %}
+    <tbody>
+      <tr>
+        <td>{{workout.pushups}}</td>
+        <td>{{workout.date_posted}}</td>
+        <td>{{workout.comment}}</td>
+        <td><a href="{{url_for('main.updateWorkout',  workout_id=workout.id)}}"><button class="btn btn-outline-primary">Edit</button></a></td>
+        <td><a href="{{url_for('main.DeleteWorkout', workout_id=workout.id)}}"><button class="btn btn-outline-danger">Delete</button></a></td>
+      </tr>
+    </tbody>
+    {% endfor %}
+  </table>
+  </div>
+{% endblock %}

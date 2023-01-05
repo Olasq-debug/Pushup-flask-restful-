@@ -1,0 +1,20 @@
+{% extends 'base.html' %}  {{super()}}
+
+{% block content %} 
+
+<div class="container">
+    <form method = 'POST' action = "{{url_for('main.updateWorkout', workout_id=workout.id)}}">
+        <div class="form-group">
+          <label for="formGroupExampleInput">Pushups</label>
+          <input type="text" class="form-control" name ='pushups' id="pushups" placeholder="Enter amount of pushups">
+        </div>
+        <div class="form-group">
+          <label for="formGroupExampleInput2">Comments</label>
+          <input type="text" class="form-control" name='comment' id="comment" placeholder="Give your comments">
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Update Workout" class="btn btn-outline-primary">
+        </div>
+      </form>
+</div>
+{% endblock %}
